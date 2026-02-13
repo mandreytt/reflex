@@ -17,10 +17,11 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 @media(max-width:768px){.nk{display:none}}
 
 /* Animations */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv.v{opacity:1;transform:none}
-.rv-left{opacity:0;transform:translateX(-40px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-left.v{opacity:1;transform:none}
-.rv-right{opacity:0;transform:translateX(40px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-right.v{opacity:1;transform:none}
-.rv-scale{opacity:0;transform:scale(.92);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-scale.v{opacity:1;transform:none}
+.rv,.rv-left,.rv-right,.rv-scale{will-change:transform,opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.rv{opacity:0;transform:translate3d(0,30px,0);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv.v{opacity:1;transform:translate3d(0,0,0)}
+.rv-left{opacity:0;transform:translate3d(-40px,0,0);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-left.v{opacity:1;transform:translate3d(0,0,0)}
+.rv-right{opacity:0;transform:translate3d(40px,0,0);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-right.v{opacity:1;transform:translate3d(0,0,0)}
+.rv-scale{opacity:0;transform:scale3d(.92,.92,1);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}.rv-scale.v{opacity:1;transform:scale3d(1,1,1)}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
 .parallax{transition:transform .1s linear}
 @keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
@@ -39,6 +40,7 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 h1,h2,h3{font-weight:700;letter-spacing:-.025em;line-height:1.1}
 .h1{font-size:clamp(2.6rem,6vw,4.5rem)}.h2{font-size:clamp(1.8rem,3.8vw,2.8rem)}.h3{font-size:clamp(1.2rem,2vw,1.5rem)}
 .ac{color:var(--ac)}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .lead{font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;opacity:.85}
 .tag{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--ac);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;justify-content:center;padding:.4rem .9rem;background:rgba(232,23,58,.06);border:1px solid rgba(232,23,58,.15);border-radius:100px;width:fit-content;margin-left:auto;margin-right:auto}.tag::before{content:'';width:18px;height:2.5px;background:var(--ac);border-radius:2px}
 .btn{display:inline-flex;align-items:center;padding:.8rem 1.7rem;border-radius:100px;font-family:var(--f);font-size:.9rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .25s}
@@ -112,7 +114,7 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 .kpi-box{padding:.9rem .8rem;background:rgba(232,23,58,.04);border-radius:10px;text-align:center;border:1px solid rgba(232,23,58,.08)}
 .kpi-box .kv{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
 .kpi-box .kl{font-size:.7rem;opacity:.55;margin-top:.15rem}
-@media(max-width:768px){.g3{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.g2{grid-template-columns:1fr!important}.vid-row{grid-template-columns:1fr!important;text-align:center!important}.kpi-top{grid-template-columns:repeat(2,1fr)}.case-card{padding:1.4rem;text-align:center}.case-inner{grid-template-columns:1fr!important}.case-video{max-width:220px;margin:0 auto;width:100%}.case-tags{justify-content:center}.case-num{text-align:center}.kpi-box .kv{font-size:1.1rem}.kpi-box{padding:.7rem .5rem}.kpi-row{justify-items:center}}
+@media(max-width:768px){.g3{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.g2{grid-template-columns:1fr!important}.who-grid{grid-template-columns:1fr!important;text-align:center}.who-grid .tag{margin-left:auto;margin-right:auto}.who-grid .lead{margin-left:auto!important;margin-right:auto!important}.vid-row{grid-template-columns:1fr!important;text-align:center!important}.kpi-top{grid-template-columns:repeat(2,1fr)}.case-card{padding:1.4rem;text-align:center}.case-inner{grid-template-columns:1fr!important}.case-video{max-width:220px;margin:0 auto;width:100%}.case-tags{justify-content:center}.case-num{text-align:center}.kpi-box .kv{font-size:1.1rem}.kpi-box{padding:.7rem .5rem}.kpi-row{justify-items:center}.rv{transform:translate3d(0,15px,0)}.rv-left{transform:translate3d(-15px,0,0)}.rv-right{transform:translate3d(15px,0,0)}.rv-scale{transform:scale3d(.96,.96,1)}.rv,.rv-left,.rv-right,.rv-scale{transition-duration:.5s}}
 @media(max-width:480px){.kpi-top{grid-template-columns:repeat(2,1fr);gap:.7rem}.kpi-top-box{padding:1rem .7rem}.kpi-top-box .kpi-val{font-size:1.6rem}.case-inner{gap:1.2rem!important}.case-card{padding:1rem}.kpi-row{gap:.5rem}.case-video{max-width:180px}}
 </style>
 </head>
@@ -135,12 +137,15 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 
 <!-- ════════════ VIRRAL ════════════ -->
 <section id="who" style="text-align:center"><div class="w">
-<div class="tag rv">Who we are</div>
-<h2 class="h2 rv">This is <span class="ac">Virral.</span></h2>
-<p class="lead rv" style="max-width:600px;margin:.8rem auto 0">Social media powerhouse founded by creators who built millions of followers. We turn reach into results for the biggest brands in the game.</p>
-
-<div class="rv-scale" style="margin-top:2.5rem;max-width:600px;margin-left:auto;margin-right:auto;border-radius:var(--r);overflow:hidden;border:1px solid rgba(232,23,58,.12);box-shadow:0 15px 50px rgba(0,0,0,.3)">
+<div class="who-grid g2">
+<div class="rv-left" style="text-align:left">
+<div class="tag">Who we are</div>
+<h2 class="h2">This is <span class="ac">Virral.</span></h2>
+<p class="lead" style="max-width:500px;margin:.8rem 0 0">Social media powerhouse founded by creators who built millions of followers. We turn reach into results for the biggest brands in the game.</p>
+</div>
+<div class="rv-right" style="border-radius:var(--r);overflow:hidden;border:1px solid rgba(232,23,58,.12);box-shadow:0 15px 50px rgba(0,0,0,.3)">
 <img src="team.jpg" alt="Virral Team" style="width:100%;display:block"/>
+</div>
 </div>
 
 <div class="sl-w rv" style="margin-top:2.5rem">
@@ -326,8 +331,7 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 
 <!-- Video 2: Construction Edit -->
 <div class="rv-right case-card">
-<div class="case-inner">
-<div class="case-video"><div style="aspect-ratio:9/16;position:relative"><iframe src="https://app.vidzflow.com/v/AsRdNYmYrX?dq=576&ap=false&muted=false&loop=false&ctp=true&bv=false&piv=false&playsinline=false&bc=%23E8173A&controls=play-large%2Cplay%2Cprogress%2Ccurrent-time%2Cmute%2Cvolume%2Csettings%2Cfullscreen" style="position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen allow="autoplay;fullscreen"></iframe></div></div>
+<div class="case-inner" style="grid-template-columns:1fr 200px">
 <div>
 <div class="case-num">02 / Construction Edit</div>
 <div class="case-tags">
@@ -343,6 +347,7 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 <div class="kpi-box"><div class="kv" style="color:var(--ac)">€0</div><div class="kl">ad spend</div></div>
 </div>
 </div>
+<div class="case-video"><div style="aspect-ratio:9/16;position:relative"><iframe src="https://app.vidzflow.com/v/AsRdNYmYrX?dq=576&ap=false&muted=false&loop=false&ctp=true&bv=false&piv=false&playsinline=false&bc=%23E8173A&controls=play-large%2Cplay%2Cprogress%2Ccurrent-time%2Cmute%2Cvolume%2Csettings%2Cfullscreen" style="position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen allow="autoplay;fullscreen"></iframe></div></div>
 </div>
 </div>
 
@@ -454,7 +459,8 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 
 <script>
 /* Reveal on scroll */
-var o=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');o.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -40px 0px'});
+var isMobile=window.innerWidth<=768;
+var o=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');o.unobserve(e.target)}})},{threshold:isMobile?.02:.06,rootMargin:isMobile?'0px 0px -20px 0px':'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){o.observe(el)});
 
 /* Smooth anchor scroll */
