@@ -112,7 +112,6 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 .kpi-box{padding:.9rem .8rem;background:rgba(232,23,58,.04);border-radius:10px;text-align:center;border:1px solid rgba(232,23,58,.08)}
 .kpi-box .kv{font-size:clamp(.85rem,2vw,1.1rem);font-weight:800;letter-spacing:-.02em}
 .kpi-box .kl{font-size:.7rem;opacity:.55;margin-top:.15rem}
-.chart-label{font-size:.7rem;opacity:.45;flex-shrink:0}.chart-val{font-size:.7rem;opacity:.6;font-weight:600;white-space:nowrap}.chart-bar>div{height:0}
 @media(max-width:768px){.g3{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.g2{grid-template-columns:1fr!important}.who-grid{grid-template-columns:1fr!important;text-align:center}.who-grid .tag{margin-left:auto;margin-right:auto}.who-grid .lead{margin-left:auto!important;margin-right:auto!important}.vid-row{grid-template-columns:1fr!important;text-align:center!important}.kpi-top{grid-template-columns:repeat(2,1fr)}.case-card{padding:1.4rem;text-align:center}.case-inner{grid-template-columns:1fr!important}.case-video{max-width:220px;margin:0 auto;width:100%}.case-inner-flip .case-video{order:-1}.case-inner-flip>div:first-child{order:1}.case-tags{justify-content:center}.case-num{text-align:center}.kpi-box .kv{font-size:1.1rem}.kpi-box{padding:.7rem .5rem}.kpi-row{justify-items:center}.rv{transform:translate3d(0,15px,0)}.rv-left{transform:translate3d(-15px,0,0)}.rv-right{transform:translate3d(15px,0,0)}.rv-scale{transform:scale3d(.96,.96,1)}.rv,.rv-left,.rv-right,.rv-scale{transition-duration:.5s}}
 @media(max-width:480px){.kpi-top{grid-template-columns:repeat(2,1fr);gap:.7rem}.kpi-top-box{padding:1rem .7rem}.kpi-top-box .kpi-val{font-size:1.6rem}.case-inner{gap:1.2rem!important}.case-card{padding:1rem}.kpi-row{gap:.5rem}.case-video{max-width:180px}}
 </style>
@@ -245,36 +244,20 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;text-align:left" class="rv g2">
 <div class="pill" style="text-align:left;padding:1.8rem">
-<h3 style="font-size:1.15rem;margin-bottom:.5rem">📈 Digital visibility</h3>
-<ul class="bl">
-<li>Establish Reflex as the most visible brand in building technology on social media</li>
-<li>Build multi-million organic monthly reach across 4 platforms</li>
-<li>40 videos/month, 10 main assets adapted for 4 platforms</li>
-</ul>
+<h3 style="font-size:1.15rem;margin-bottom:.5rem">📈 5M+ organic impressions/month</h3>
+<p style="color:var(--t2);line-height:1.5">From zero to multi-million monthly reach across LinkedIn, Instagram, TikTok &amp; YouTube. 40 videos/month, purely organic — no paid media.</p>
 </div>
 <div class="pill" style="text-align:left;padding:1.8rem">
-<h3 style="font-size:1.15rem;margin-bottom:.5rem">🎯 Reach young audiences</h3>
-<ul class="bl">
-<li>Next-gen engineers &amp; technicians are on TikTok, not in trade magazines</li>
-<li>Platform-native content that meets them where they are</li>
-<li>Organic, authentic. No paid media required</li>
-</ul>
+<h3 style="font-size:1.15rem;margin-bottom:.5rem">🎯 50K followers in 12 months</h3>
+<p style="color:var(--t2);line-height:1.5">Combined audience across 4 platforms. Algorithm-driven growth through format consistency and platform-native content.</p>
 </div>
 <div class="pill" style="text-align:left;padding:1.8rem">
-<h3 style="font-size:1.15rem;margin-bottom:.5rem">👥 Employer branding</h3>
-<ul class="bl">
-<li>Make the people behind Reflex visible. Real faces, real stories</li>
-<li>Digitally invisible = non-existent for young talent</li>
-<li>Social media as recruiting infrastructure, not just marketing</li>
-</ul>
+<h3 style="font-size:1.15rem;margin-bottom:.5rem">👥 20 employees as content faces</h3>
+<p style="color:var(--t2);line-height:1.5">Real people on camera build a social recruiting pipeline. Less dependency on job boards, more inbound applications from qualified talent.</p>
 </div>
 <div class="pill" style="text-align:left;padding:1.8rem">
-<h3 style="font-size:1.15rem;margin-bottom:.5rem">🏆 Category leadership</h3>
-<ul class="bl">
-<li>No competitor in building technology does social media systematically</li>
-<li>First-mover advantage that compounds over years</li>
-<li>From hidden champion to digital category leader</li>
-</ul>
+<h3 style="font-size:1.15rem;margin-bottom:.5rem">🏆 #1 social presence in building tech</h3>
+<p style="color:var(--t2);line-height:1.5">No competitor does social media systematically. First-mover advantage that compounds monthly and locks in category ownership.</p>
 </div>
 </div>
 </div></section>
@@ -369,24 +352,6 @@ footer{text-align:center;padding:1.2rem;font-size:.7rem;opacity:.3;border-top:1p
 <div class="kpi-box"><div class="kv">€0</div><div class="kl">ad spend</div></div>
 </div>
 </div>
-</div>
-</div>
-
-<!-- Growth Chart -->
-<div class="rv" style="margin-top:3rem;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:2rem 2.5rem">
-<h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem;text-align:center">Organic Growth</h3>
-<p style="font-size:.85rem;opacity:.5;text-align:center;margin-bottom:1.5rem">Cumulative views across all platforms</p>
-<div id="growth-chart" style="position:relative;height:280px;display:flex;align-items:flex-end;gap:0;padding-bottom:28px;border-bottom:1px solid var(--bd)">
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">0</span><div style="width:65%;background:var(--bg);border:1px solid var(--bd);border-radius:4px 4px 0 0;min-height:3px;transition:height 1s ease"></div><span class="chart-label">M1</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">2M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .1s" data-h="13px"></div><span class="chart-label">M2</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">5M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .2s" data-h="32px"></div><span class="chart-label">M3</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">8M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .3s" data-h="52px"></div><span class="chart-label">M4</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">12M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .4s" data-h="77px"></div><span class="chart-label">M5</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">18M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .5s" data-h="116px"></div><span class="chart-label">M6</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">21M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .6s" data-h="136px"></div><span class="chart-label">M7</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">24.6M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .7s" data-h="159px"></div><span class="chart-label">M8</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val">27M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .8s" data-h="174px"></div><span class="chart-label">M9</span></div>
-<div class="chart-bar" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px"><span class="chart-val" style="color:var(--ac);font-weight:700">31M</span><div style="width:65%;background:linear-gradient(180deg,var(--ac),rgba(232,23,58,.6));border-radius:4px 4px 0 0;transition:height 1s ease .9s" data-h="200px"></div><span class="chart-label">M10</span></div>
 </div>
 </div>
 
@@ -498,9 +463,6 @@ document.querySelectorAll('.kpi-val,.kv').forEach(function(el){co.observe(el)});
 var hero=document.querySelector('.hero');
 if(hero){window.addEventListener('scroll',function(){var s=window.scrollY;if(s<window.innerHeight){hero.style.transform='translateY('+s*0.3+'px)';hero.style.opacity=1-s/(window.innerHeight*1.2)}},{passive:true})}
 
-/* Animate chart bars on scroll */
-var chartObs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.querySelectorAll('[data-h]').forEach(function(bar){bar.style.height=bar.getAttribute('data-h')});chartObs.unobserve(entry.target)}})},{threshold:.2});
-document.querySelectorAll('.chart-bar').forEach(function(el){chartObs.observe(el.parentElement)});
 
 /* Nav shrink on scroll */
 var nav=document.querySelector('nav');
