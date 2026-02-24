@@ -18,11 +18,10 @@
   --e:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body{font-family:var(--f);background:var(--bg);color:var(--w);line-height:1.65;overflow-x:hidden;font-size:15px}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}ul{list-style:none}
 .w{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
-100%{transform:translateX(-50%)}}
 @keyframes float1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(3deg)}}
 @keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(-2deg)}}
 @keyframes float3{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
@@ -592,9 +591,11 @@ h2 span{color:var(--a)}
   
   /* Process */
   .prc{grid-template-columns:1fr}
-  
-  /* Lead/Contact */
-  .lead .w > div > div{padding:24px!important}
+  .pc{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:12px}
+  .pcn{grid-column:1/-1;margin-bottom:8px;font-size:1.4rem}
+  .pci{margin-bottom:0;align-self:center;width:34px;height:34px}
+  .pch{align-self:center;margin-bottom:0}
+  .pcde{grid-column:1/-1;margin-top:8px}
   
   /* Footer */
   .ftt{grid-template-columns:1fr!important;gap:20px;text-align:center}
@@ -690,11 +691,8 @@ h2 span{color:var(--a)}
 /* ============ MOBILE FIXES V3 ============ */
 
 @media(max-width:768px){
-  .lead-grid{grid-template-columns:1fr!important;gap:24px!important}
-  .lead-grid > div:first-child{max-width:200px;margin:0 auto}
   .lead-grid > div:last-child{text-align:center}
   .lead-grid > div:last-child h3{font-size:1.2rem!important}
-  .lead-grid > div:last-child [style*="display:flex"]{flex-direction:column!important;align-items:center!important}
 }
 
 @media(max-width:768px){
@@ -808,7 +806,7 @@ h2 span{color:var(--a)}
 
 /* After hero: blue-purple accent */
 .logos::before{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:400px;background:radial-gradient(ellipse,rgba(78,95,253,.08) 0%,transparent 70%);pointer-events:none;z-index:0;filter:blur(80px)}
-.logos{position:relative;overflow:visible}
+.logos{position:relative;overflow:hidden}
 
 /* Video slider: dual glow pink + blue */
 .vids::before{content:'';position:absolute;top:50%;left:-150px;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(254,44,85,.1) 0%,transparent 70%);pointer-events:none;z-index:0;filter:blur(100px)}
@@ -864,70 +862,72 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 
 /* ============ PASCAL / CONTACT SECTION MOBILE ============ */
 @media(max-width:768px){
-  /* Grid: stack vertically */
   .lead-grid{
     grid-template-columns:1fr!important;
     gap:0!important;
   }
 
-  /* Pascal sidebar: horizontal compact strip instead of full column */
   .lead-grid > div:first-child{
     border-right:none!important;
     border-bottom:1px solid var(--bd)!important;
-    padding:20px 20px!important;
+    padding:16px 20px!important;
     flex-direction:row!important;
+    flex-wrap:wrap!important;
     align-items:center!important;
     justify-content:flex-start!important;
     text-align:left!important;
-    gap:14px!important;
-    background:linear-gradient(90deg,rgba(254,44,85,.06),transparent)!important;
+    gap:0!important;
+    background:transparent!important;
   }
 
-  /* Avatar: smaller on mobile */
   .lead-grid > div:first-child > div:first-child{
-    width:64px!important;
-    height:64px!important;
-    min-width:64px!important;
+    width:52px!important;
+    height:52px!important;
+    min-width:52px!important;
     margin-bottom:0!important;
+    margin-right:12px!important;
   }
 
-  /* Name + role + badge: inline next to avatar */
-  .lead-grid > div:first-child > div:not(:first-child){
-    text-align:left!important;
+  .lead-grid > div:first-child > div:nth-child(2){
+    font-size:.95rem!important;
     margin-bottom:0!important;
+    white-space:nowrap!important;
   }
 
-  /* "Verfügbar" badge inline */
-  .lead-grid > div:first-child .lab{
+  .lead-grid > div:first-child > div:nth-child(3){
+    width:100%!important;
+    margin-bottom:0!important;
     margin-top:4px!important;
-    font-size:.65rem!important;
+    padding-left:64px!important;
+    font-size:.68rem!important;
   }
 
-  /* Right content: tighter padding */
+  .lead-grid > div:first-child .lab{
+    margin-top:2px!important;
+    margin-left:64px!important;
+    font-size:.62rem!important;
+  }
+
   .lead-right{
     padding:24px 20px!important;
   }
 
-  /* Headline smaller on mobile */
   .lead-right > div:nth-child(2){
     font-size:clamp(1.2rem,5.5vw,1.6rem)!important;
     margin-bottom:10px!important;
   }
 
-  /* Description text compact */
   .lead-right > p{
     font-size:.82rem!important;
     margin-bottom:16px!important;
   }
 
-  /* Benefits row: stack vertically, compact */
   .lead-right > div[style*="display:flex"][style*="gap:24px"]{
     flex-direction:column!important;
     gap:8px!important;
     margin-bottom:20px!important;
   }
 
-  /* CTA button: full width */
   .lead-right a.bp{
     width:100%!important;
     justify-content:center!important;
@@ -1002,7 +1002,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="li"><img loading="lazy" decoding="async" src="img/img-05.jpg" alt="mydays"" style="height:32px;width:auto;border-radius:50%"></div>
 <div class="li"><img loading="lazy" decoding="async" src="img/img-06.png" alt="Nintendo" style="height:28px;width:auto"></div>
 <div class="li"><img loading="lazy" decoding="async" src="img/img-07.png" alt="Hitschies"" style="height:34px;width:auto"></div>
-<div class="li"><img loading="lazy" decoding="async" src="img/img-03.png" alt="BabyOne" style="height:28px;width:auto"></div>
+<div class="li"><img loading="lazy" decoding="async" src="img/img-08.png" alt="BabyOne" style="height:28px;width:auto"></div>
 
 <div class="li"><img loading="lazy" decoding="async" src="img/img-01.png" alt="Jochen Schweizer" style="height:28px;width:auto"></div>
 <div class="li"><img loading="lazy" decoding="async" src="img/img-02.webp" alt="EDEKA" style="height:36px;width:auto"></div>
@@ -1011,7 +1011,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="li"><img loading="lazy" decoding="async" src="img/img-05.jpg" alt="mydays"" style="height:32px;width:auto;border-radius:50%"></div>
 <div class="li"><img loading="lazy" decoding="async" src="img/img-06.png" alt="Nintendo" style="height:28px;width:auto"></div>
 <div class="li"><img loading="lazy" decoding="async" src="img/img-07.png" alt="Hitschies"" style="height:34px;width:auto"></div>
-<div class="li"><img loading="lazy" decoding="async" src="img/img-03.png" alt="BabyOne" style="height:28px;width:auto"></div>
+<div class="li"><img loading="lazy" decoding="async" src="img/img-08.png" alt="BabyOne" style="height:28px;width:auto"></div>
 
 </div></div>
 </section>
@@ -1077,7 +1077,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="cg2">
 
 <div class="cc2">
-<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Finnel"></div>
+<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-09.png" alt="Finnel"></div>
 <div class="cc2-overlay">
 <div class="cc2-top">
 <span class="cc2-pill">🔥 5 Mrd. Views</span>
@@ -1098,7 +1098,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cc2">
-<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Mandre"></div>
+<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-10.png" alt="Mandre"></div>
 <div class="cc2-overlay">
 <div class="cc2-top">
 <span class="cc2-pill">🎬 2.1 Mrd. Views</span>
@@ -1119,7 +1119,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cc2">
-<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Opa Werner"></div>
+<div class="cc2-img"><img loading="lazy" decoding="async" src="img/img-11.png" alt="Opa Werner"></div>
 <div class="cc2-overlay">
 <div class="cc2-top">
 <span class="cc2-pill">⚡ 400M+ Views</span>
@@ -1159,16 +1159,16 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="tc">
 <div class="tc-stars">★★★★★</div>
 <div class="tc-quote">"Gemeinsam mit virral und Finnel haben wir es geschafft, <strong>Schüler:innen dort zu erreichen, wo sie wirklich unterwegs sind</strong> auf TikTok, Instagram und YouTube Shorts. Die Videoideen waren kreativ, authentisch und genau auf die Zielgruppe zugeschnitten. Die Reichweite und Resonanz zeigen klar: <strong>Wir sind mit der Arbeitgebermarke EDEKA Südwest im Fokus der Jugendlichen angekommen.</strong>"</div>
-<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-20.avif" alt="Manuel Schaub"></div><div><div class="tc-name">Manuel Schaub</div><div class="tc-role">Teamlead Personalmarketing<br><span class="tc-company">@EDEKA Südwest</span></div></div></div></div>
+<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-12.avif" alt="Manuel Schaub"></div><div><div class="tc-name">Manuel Schaub</div><div class="tc-role">Teamlead Personalmarketing<br><span class="tc-company">@EDEKA Südwest</span></div></div></div></div>
 <div class="tc">
 <div class="tc-stars">★★★★★</div>
 <div class="tc-quote">"Virral hat unsere Brandkampagnen mit <strong>performancestarkem Vertical Content maßgeblich vorangetrieben.</strong> Die Videoideen waren kreativ, authentisch und genau auf die Zielgruppe zugeschnitten. Die Reichweite und Resonanz zeigen klar: <strong>Wir haben unsere Social-Präsenz auf ein neues Level gehoben.</strong>"</div>
-<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-21.jpg" alt="Fabian Heuel" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div><div><div class="tc-name">Fabian Heuel</div><div class="tc-role">Teamlead Brand & Social<br><span class="tc-company">@Jochen Schweizer mydays Group</span></div></div></div>
+<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-13.jpg" alt="Fabian Heuel" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div><div><div class="tc-name">Fabian Heuel</div><div class="tc-role">Teamlead Brand & Social<br><span class="tc-company">@Jochen Schweizer mydays Group</span></div></div></div>
 </div>
 <div class="tc">
 <div class="tc-stars">★★★★★</div>
 <div class="tc-quote">"Gemeinsam mit virral haben wir <strong>einen starken Launch unseres STRABAG-TikTok Kanals</strong> hingelegt und gezeigt, dass die Baubranche mehr als bereit ist für Entertainment-Formate. <strong>Wir konnten unsere Aktivitäten auch auf YouTube auf ein neues Level heben.</strong> Das Ergebnis sind starke Reichweiten und Engagement-Raten auf beiden Plattformen und das alles organisch."</div>
-<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-21.jpg" alt="Lena Barkovic" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div><div><div class="tc-name">Lena Barkovic</div><div class="tc-role">Teamlead Social Media<br><span class="tc-company">@STRABAG AG</span></div></div></div>
+<div class="tc-author"><div class="tc-av"><img loading="lazy" decoding="async" src="img/img-14.jpg" alt="Lena Barkovic" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div><div><div class="tc-name">Lena Barkovic</div><div class="tc-role">Teamlead Social Media<br><span class="tc-company">@STRABAG AG</span></div></div></div>
 </div></div>
 <div style="text-align:center;margin-top:48px">
 <a href="#contact" class="cta" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--a);color:#fff;border-radius:100px;font-size:.85rem;font-weight:700;text-decoration:none;transition:all .3s">Jetzt kostenfreie Beratung vereinbaren <span style="font-size:1.1em">→</span></a>
@@ -1179,7 +1179,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <section class="sec award">
 <div class="w">
 <div class="award-inner">
-<div class="award-img"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Andreas Briese übergibt Finnel den YouTube Creator des Jahres Award" loading="lazy"></div>
+<div class="award-img"><img loading="lazy" decoding="async" src="img/img-15.jpg" alt="Andreas Briese übergibt Finnel den YouTube Creator des Jahres Award" loading="lazy"></div>
 <div class="award-content">
 <div class="award-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube Creator des Jahres</div>
 <div class="award-h">Unser Co-Founder Finnel</div>
@@ -1237,10 +1237,10 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cx-wrap">
-<div class="cx-logo" style="background:#fff;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-25.jpg" alt="CLAAS" style="width:100%;height:100%;object-fit:cover"></div>
+<div class="cx-logo" style="background:#fff;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-16.jpg" alt="CLAAS" style="width:100%;height:100%;object-fit:cover"></div>
 <div class="cx-card" style="cursor:pointer" onclick="window.open('https://www.youtube.com/watch?v=1pPBtgf0_Co','_blank')">
 <div class="cx-photo from-right">
-<div class="cx-photo-bg"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Dorfkinder x CLAAS" style="object-position:center 20%"></div>
+<div class="cx-photo-bg"><img loading="lazy" decoding="async" src="img/img-17.png" alt="Dorfkinder x CLAAS" style="object-position:center 20%"></div>
 <div class="cx-photo-grad"></div>
 <div class="cx-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="9.5 7.5 16.5 12 9.5 16.5"/></svg></div>
 <div class="cx-yt"><svg viewBox="0 0 24 24" fill="#ff0000" style="width:14px;height:14px"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg> Auf YouTube ansehen</div>
@@ -1261,7 +1261,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cx-wrap">
-<div class="cx-logo" style="background:#0d7fac;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Jochen Schweizer" style="width:100%;height:100%;object-fit:cover"></div>
+<div class="cx-logo" style="background:#0d7fac;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-18.png" alt="Jochen Schweizer" style="width:100%;height:100%;object-fit:cover"></div>
 <div class="cx-card">
 <div class="cx-content-card">
 <div class="cx-top">
@@ -1289,10 +1289,10 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cx-wrap">
-<div class="cx-logo" style="background:#0d7fac;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Jochen Schweizer" style="width:100%;height:100%;object-fit:cover"></div>
+<div class="cx-logo" style="background:#0d7fac;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-18.png" alt="Jochen Schweizer" style="width:100%;height:100%;object-fit:cover"></div>
 <div class="cx-card">
 <div class="cx-photo">
-<div class="cx-photo-bg"><img loading="lazy" decoding="async" src="img/img-03.png" alt="Halloween Party" style="object-position:center 35%"></div>
+<div class="cx-photo-bg"><img loading="lazy" decoding="async" src="img/img-19.jpg" alt="Halloween Party" style="object-position:center 35%"></div>
 <div class="cx-photo-grad"></div>
 <div class="cx-photo-content">
 <div class="cx-sub">Creator Event · 100+ Creator</div>
@@ -1312,7 +1312,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 </div>
 
 <div class="cx-wrap">
-<div class="cx-logo" style="background:#fff;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-03.png" alt="STRABAG" style="width:100%;height:100%;object-fit:cover"></div>
+<div class="cx-logo" style="background:#fff;padding:0;overflow:hidden;border-radius:20px"><img loading="lazy" decoding="async" src="img/img-20.png" alt="STRABAG" style="width:100%;height:100%;object-fit:cover"></div>
 <div class="cx-card">
 <div class="cx-content-card">
 <div class="cx-top">
@@ -1379,7 +1379,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 
 <div style="background:linear-gradient(180deg,rgba(254,44,85,.06),transparent);padding:48px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid var(--bd)">
 <div style="width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid var(--a);margin-bottom:16px;box-shadow:0 8px 32px rgba(254,44,85,.2)">
-<img loading="lazy" decoding="async" src="img/img-31.webp" alt="Pascal Feller" style="width:100%;height:100%;object-fit:cover">
+<img loading="lazy" decoding="async" src="img/img-21.webp" alt="Pascal Feller" style="width:100%;height:100%;object-fit:cover">
 </div>
 <div style="font-size:1.05rem;font-weight:800;margin-bottom:2px">Pascal Feller</div>
 <div style="font-size:.72rem;color:var(--w3);margin-bottom:16px">Strategische Projektplanung</div>
